@@ -59,4 +59,11 @@ public:
 	std::string getStringSuit() const { return suits[suit]; }
 };
 
+bool operator< (Card const& lhs, Card const& rhs) { return lhs.getRank() < rhs.getRank(); }
+bool operator> (Card const& lhs, Card const& rhs) { return rhs < lhs; }
+bool operator<=(Card const& lhs, Card const& rhs) { return !(lhs > rhs); }
+bool operator>=(Card const& lhs, Card const& rhs) { return !(lhs < rhs); }
+bool operator==(Card const& lhs, Card const& rhs) { return lhs.getRank() == rhs.getRank(); }
+bool operator!=(Card const& lhs, Card const& rhs) { return !(lhs == rhs); }
+
 #endif // !CARD_H
