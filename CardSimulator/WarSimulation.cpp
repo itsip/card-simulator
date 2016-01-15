@@ -1,9 +1,19 @@
 #include <iostream>
 #include <string>
-#include "Card.hpp"
+#include <ctime>
+#include <cstdlib>
+#include "Deck.hpp"
 using namespace std;
 
 int main() {
-	Card twoOfHearts(1, 3);
-	cout << twoOfHearts.getStringRank() << " of " << twoOfHearts.getStringSuit() << endl;
+	srand(time(0));
+
+	Deck mainDeck(1);
+	Deck hand1;
+	Deck hand2;
+
+	mainDeck.shuffle();
+	while (mainDeck.getNumOfCards()) {
+
+	}
 }
