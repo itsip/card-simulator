@@ -4,6 +4,8 @@
 
 class Card {
 private:
+	static const int NUM_OF_RANKS = 13;
+	static const int NUM_OF_SUITS = 4;
 	enum Rank {
 		two,
 		three,
@@ -25,7 +27,7 @@ private:
 		clubs,
 		spades
 	};
-	std::string ranks[13] = {
+	const std::string ranks[NUM_OF_RANKS] = {
 		"Two",
 		"Three",
 		"Four",
@@ -40,7 +42,7 @@ private:
 		"King",
 		"Ace"
 	};
-	std::string suits[4] = {
+	const std::string suits[NUM_OF_SUITS] = {
 		"Hearts",
 		"Diamonds",
 		"Clubs",
@@ -57,6 +59,12 @@ public:
 
 	std::string getStringRank() const { return ranks[rank]; }
 	std::string getStringSuit() const { return suits[suit]; }
+	std::string getFullTitle() const {
+		return ranks[rank] + " of " + suits[suit];
+	}
+
+	static int numOfRanks() { return NUM_OF_RANKS; }
+	static int numOfSuits() { return NUM_OF_SUITS; }
 };
 
 bool operator< (Card const& lhs, Card const& rhs) {
