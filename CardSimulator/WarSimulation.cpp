@@ -13,13 +13,16 @@ int main() {
 	srand(time(0));
 	vector<double> counts;
 	int numOfGames;
-	cout << "Number of simulations: ";
+	int numOfDecks;
+	cout << "Number of games: ";
 	cin >> numOfGames;
+	cout << "Number of decks: ";
+	cin >> numOfDecks;
 	cout << endl;
 
 	for (int i = 0; i < numOfGames; i++) {
 		double count = 0.0;
-		Deck mainDeck(2);
+		Deck mainDeck(numOfDecks);
 		Deck hand1;
 		Deck hand2;
 
@@ -49,20 +52,29 @@ int main() {
 }
 
 void playWar(Deck &hand1, Deck &hand2, Deck &warPot) {
+	cin.ignore();
 	Card hand1Play = hand1.takeTopCard();
+	cout << "Player One: " << hand1Play.getFullTitle();
+
+	cin.ignore();
 	Card hand2Play = hand2.takeTopCard();
+	cout << "Player Two: " << hand2Play.getFullTitle() << endl;
+	cout << endl;
 
 	if (hand1Play > hand2Play) {
 		hand1.addCardToBottom(hand1Play);
 		hand1.addCardToBottom(hand2Play);
 		hand1.addDeckToBottom(warPot);
+		cout << "Player One Wins, P1: " << hand1.getNumOfCards() << ", P2: " << hand2.getNumOfCards() << endl;
 	}
 	else if (hand1Play < hand2Play) {
 		hand2.addCardToBottom(hand1Play);
 		hand2.addCardToBottom(hand2Play);		
 		hand2.addDeckToBottom(warPot);
+		cout << "Player Two Wins, P1: " << hand1.getNumOfCards() << ", P2: " << hand2.getNumOfCards() << endl;
 	}
 	else if (hand1Play == hand2Play) {
+		cout << "WAR" << endl;
 		warPot.addCardToBottom(hand1Play);
 		warPot.addCardToBottom(hand2Play);
 		if (hand1.getNumOfCards() > 3 && hand2.getNumOfCards() > 3) {
