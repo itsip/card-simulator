@@ -19,7 +19,16 @@ public:
 	}
 
 	void addCard(Card const& card) {
+		cards.insert(cards.begin(), card);
+	}
+
+	void addCardToBottom(Card const& card) {
 		cards.push_back(card);
+	}
+
+	void addDeckToBottom(Deck const& deck) {
+		for (auto card : deck.getCards())
+			addCardToBottom(card);
 	}
 
 	Card takeTopCard() {
@@ -34,6 +43,10 @@ public:
 
 	int const getNumOfCards() {
 		return cards.size();
+	}
+
+	std::vector<Card> getCards() const {
+		return cards;
 	}
 
 	void printAllCards() const {
