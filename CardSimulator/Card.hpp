@@ -65,7 +65,19 @@ public:
 
 	static int numOfRanks() { return NUM_OF_RANKS; }
 	static int numOfSuits() { return NUM_OF_SUITS; }
+	Card& Card::operator= (Card const& original);
 };
+
+Card& Card::operator= (Card const& original)
+{
+	if (this == &original)
+		return *this;
+
+	rank = original.rank;
+	suit = original.suit;
+
+	return *this;
+}
 
 bool operator< (Card const& lhs, Card const& rhs) {
 	return lhs.getRank() < rhs.getRank();

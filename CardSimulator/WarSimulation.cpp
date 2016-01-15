@@ -4,6 +4,7 @@
 using namespace std;
 
 int main() {
-	Deck deck;
+	Deck deck(1);
+	deck.shuffle();
 	deck.printAllCards();
 }
