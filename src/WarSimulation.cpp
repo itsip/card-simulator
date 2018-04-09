@@ -52,11 +52,11 @@ int main() {
 }
 
 void playWar(Deck &hand1, Deck &hand2, Deck &warPot) {
-	cin.ignore();
+	//cin.ignore();
 	Card hand1Play = hand1.takeTopCard();
 	cout << "Player One: " << hand1Play.getFullTitle();
 
-	cin.ignore();
+	//cin.ignore();
 	Card hand2Play = hand2.takeTopCard();
 	cout << "Player Two: " << hand2Play.getFullTitle() << endl;
 	cout << endl;
