@@ -72,8 +72,7 @@ class Card {
         static int numOfRanks() { return NUM_OF_RANKS; }
         static int numOfSuits() { return NUM_OF_SUITS; }
 
-        Card& operator= (Card const& original)
-        {
+        Card& operator= (Card const& original) {
             if (this == &original)
                 return *this;
 
